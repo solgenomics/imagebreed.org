@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  breedbase:
+    image: breedbase/breedbase:v0.80
+    container_name: breedbase_web_imagebreed
+    ports:
+      - 8093:8080
+    volumes:
+      - webdata:/home/production/volume
+      - type: bind
+        source: /home/production/imagebreed.org/empty_db_without.test_users.sql
+        target: /home/production/empty_dump.sql
+      - type: bind
+        source: /home/production/imagebreed.org/sgn_local.conf
+        target: /home/production/cxgn/sgn/sgn_local.conf
+      - type: bind
+        source: /home/production/imagebreed.org/crontab
+        target: /etc/crontab
+
+volumes:
+  webdata:
+
+
+
