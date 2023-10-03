@@ -17,6 +17,9 @@ services:
       - type: bind
         source: /home/production/imagebreed.org/crontab
         target: /etc/crontab
+      - type: bind
+        source: /export/prod/public_imagebreed/
+        target: /home/production/public
 
 volumes:
   webdata:
